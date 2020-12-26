@@ -1,0 +1,26 @@
+{
+  "name": "shortscale",
+  "version": "1.0.0",
+  "description": "Convert positive integers to English words",
+  "main": "shortscale.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "files": [
+    "shortscale.js"
+  ],
+  "keywords": [
+    "number",
+    "text",
+    "conversion"
+  ],
+  "author": "Jürgen Leschner",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jldec/shortscale.git"
+  }
+}
