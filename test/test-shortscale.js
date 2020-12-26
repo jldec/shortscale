@@ -1,6 +1,6 @@
 const test = require('tape');
 
-const shortscale = require('../shortscale');
+const shortscale = require('../shortscale.js');
 
 const tests = [
   [1, 'one'],
