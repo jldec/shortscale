@@ -1,19 +1,14 @@
 const shortscale = require('../shortscale.js');
 
-const COUNT = 100000;
+const COUNT = 1000;
 
-function hrnow() {
-  let sns = process.hrtime();
-  return (sns[0] * 1e3) + (sns[1] / 1e6);
-}
-
+// microsecond resolution timer
 function hrtimer() {
-  let start = hrnow();
-  return function() {
-    let time = hrnow() - start;
-    return time;
-  };
+  let start = process.hrtime.bigint();
+  return () => Number((process.hrtime.bigint() - start) / 1000n);
 }
+
+console.log(`hrtimer resolution is ~${hrtimer()()} microseconds`);
 
 function bench(count) {
   let bytes = 0;
@@ -21,7 +16,7 @@ function bench(count) {
   while (count--) {
     bytes += shortscale(Number.MAX_SAFE_INTEGER).length;
   }
-  console.log(`${COUNT} calls, ${bytes} bytes, ${time()} ms`);
+  console.log(`${COUNT} calls, ${bytes} bytes, ${time()} microseconds`);
 }
 
 bench(COUNT);
