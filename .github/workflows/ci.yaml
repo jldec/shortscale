@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    types: [updated]
+    branches: [main]
 jobs:
   test:
     strategy:
