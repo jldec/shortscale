@@ -1,12 +1,11 @@
 # shortscale
 [![CI](https://github.com/jldec/shortscale/workflows/CI/badge.svg)](https://github.com/jldec/shortscale/actions)
 
-Converts numbers to an English string.
+Converts numbers into English words using the [short scale](https://en.wikipedia.org/wiki/Long_and_short_scales#Comparison).
 
-E.g. `shortscale(420000999015)` returns
+Supports positive integers from 0 to Number.MAX_SAFE_INTEGER (9,007,199,254,740,991).
 
-> four hundred and twenty billion nine hundred and ninety nine thousand and fifteen
+E.g. `shortscale(420000999015)` returns  
+`"four hundred and twenty billion nine hundred and ninety nine thousand and fifteen"`
 
-Supports positive integers from 1 to Number.MAX_SAFE_INTEGER.
-
-For more information see https://en.wikipedia.org/wiki/Long_and_short_scales.
+For Rust version see [jldec/shortscale-rs](https://github.com/jldec/shortscale-rs).

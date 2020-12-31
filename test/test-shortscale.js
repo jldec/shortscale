@@ -3,6 +3,7 @@ const test = require('tape');
 const shortscale = require('../shortscale.js');
 
 const tests = [
+  [0, 'zero'],
   [1, 'one'],
   [10, 'ten'],
   [11, 'eleven'],
@@ -46,7 +47,10 @@ const tests = [
   [999999120, 'nine hundred and ninety nine million nine hundred and ninety nine thousand one hundred and twenty'],
   [420000999015, 'four hundred and twenty billion nine hundred and ninety nine thousand and fifteen'],
   [Number.MAX_SAFE_INTEGER, 'nine quadrillion seven trillion one hundred and ninety nine billion' +
-    ' two hundred and fifty four million seven hundred and fourty thousand nine hundred and ninety one']
+    ' two hundred and fifty four million seven hundred and fourty thousand nine hundred and ninety one'],
+  [Number.MAX_SAFE_INTEGER + 1, 'big number'],
+  [-1, 'undefined'],
+  [3.14159265, 'undefined']
 ];
 
 tests.forEach(function ([num, str]) {

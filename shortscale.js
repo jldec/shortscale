@@ -6,8 +6,8 @@
  *   four hundred and twenty billion
  *   nine hundred and ninety nine thousand and fifteen
  *
- * Supports positive integers from 1 to Number.MAX_SAFE_INTEGER
- * i.e. 1 to 9,007,199,254,740,991
+ * Supports positive integers from 0 to Number.MAX_SAFE_INTEGER
+ * i.e. 0 to 9,007,199,254,740,991
  *
  * see https://en.wikipedia.org/wiki/Long_and_short_scales
 */
@@ -50,14 +50,16 @@ const numwords = {
 };
 
 module.exports = function shortscale(num) {
+  if (num === 0) return 'zero';
+  if (num > Number.MAX_SAFE_INTEGER) return 'big number';
 
   return concat([
     concat([
-      illions(num, 10 ** 15), // quadrillions
-      illions(num, 10 ** 12), // trillions
-      illions(num, 10 ** 9),  // billions
-      illions(num, 10 ** 6),  // millions
-      illions(num, 10 ** 3),  // thousands
+      jillions(num, 10 ** 15), // quadrillions
+      jillions(num, 10 ** 12), // trillions
+      jillions(num, 10 ** 9),  // billions
+      jillions(num, 10 ** 6),  // millions
+      jillions(num, 10 ** 3),  // thousands
       hundreds(num)], ' '),
     tensAndUnits(num)], ' and ');
 };
@@ -84,7 +86,7 @@ function oneTo999(n) {
 }
 
 // one (?)illion to 999 (?)illion where scale = 1000, 1000000 ...
-function illions(n, scale) {
+function jillions(n, scale) {
   return suffix(oneTo999(Math.trunc(n % (scale * 1000) / scale)),
     numwords[scale]);
 }
