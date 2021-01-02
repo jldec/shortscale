@@ -9,6 +9,8 @@
  * Supports positive integers from 0 to Number.MAX_SAFE_INTEGER
  * i.e. 0 to 9,007,199,254,740,991
  *
+ * Larger values return "(big number)".
+ *
  * see https://en.wikipedia.org/wiki/Long_and_short_scales
 */
 
@@ -51,15 +53,15 @@ const numwords = {
 
 module.exports = function shortscale(num) {
   if (num === 0) return 'zero';
-  if (num > Number.MAX_SAFE_INTEGER) return 'big number';
+  if (num > Number.MAX_SAFE_INTEGER) return '(big number)';
 
   return concat([
     concat([
-      jillions(num, 10 ** 15), // quadrillions
-      jillions(num, 10 ** 12), // trillions
-      jillions(num, 10 ** 9),  // billions
-      jillions(num, 10 ** 6),  // millions
-      jillions(num, 10 ** 3),  // thousands
+      scale(num, 10 ** 15), // quadrillions
+      scale(num, 10 ** 12), // trillions
+      scale(num, 10 ** 9),  // billions
+      scale(num, 10 ** 6),  // millions
+      scale(num, 10 ** 3),  // thousands
       hundreds(num)], ' '),
     tensAndUnits(num)], ' and ');
 };
@@ -77,7 +79,7 @@ function tensAndUnits(n) {
 
 // one hundred to nine hundred
 function hundreds(n) {
-  return suffix(numwords[Math.trunc(n % 1000 / 100)], numwords[100]);
+  return suffix(numwords[Math.trunc(n / 100) % 10], numwords[100]);
 }
 
 // one to nine hundred and ninety nine
@@ -85,10 +87,10 @@ function oneTo999(n) {
   return concat([hundreds(n), tensAndUnits(n)], ' and ');
 }
 
-// one (?)illion to 999 (?)illion where scale = 1000, 1000000 ...
-function jillions(n, scale) {
-  return suffix(oneTo999(Math.trunc(n % (scale * 1000) / scale)),
-    numwords[scale]);
+// one (?)illion to 999 (?)illion where thousands = 1000, 1000000 ...
+function scale(n, thousands) {
+  return suffix(oneTo999(Math.trunc(n / thousands) % 1000),
+    numwords[thousands]);
 }
 
 // concatenate array of strings, separated by sep, ignoring '' values

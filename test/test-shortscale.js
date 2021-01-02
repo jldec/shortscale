@@ -48,7 +48,7 @@ const tests = [
   [420000999015, 'four hundred and twenty billion nine hundred and ninety nine thousand and fifteen'],
   [Number.MAX_SAFE_INTEGER, 'nine quadrillion seven trillion one hundred and ninety nine billion' +
     ' two hundred and fifty four million seven hundred and fourty thousand nine hundred and ninety one'],
-  [Number.MAX_SAFE_INTEGER + 1, 'big number'],
+  [Number.MAX_SAFE_INTEGER + 1, '(big number)'],
   [-1, 'undefined'],
   [3.14159265, 'undefined']
 ];

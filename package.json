@@ -1,6 +1,6 @@
 {
   "name": "shortscale",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert positive integers to English words",
   "main": "shortscale.js",
   "scripts": {
