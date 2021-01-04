@@ -3,7 +3,7 @@
 
 Converts numbers into English words.
 
-The [short scale](https://en.wikipedia.org/wiki/Long_and_short_scale_words#Comparison),
+The [short scale](https://en.wikipedia.org/wiki/Long_and_short_scales#Comparison),
 has different words for each power of 1000.
 
 Supports positive integers from 0 to Number.MAX_SAFE_INTEGER (9,007,199,254,740,991).  
