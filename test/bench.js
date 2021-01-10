@@ -3,11 +3,10 @@ const shortscale = require('../shortscale.js');
 const RUNS = 15
 const ITERATIONS = 20000;
 
-// microsecond resolution timer
-// console.log(`hrtimer resolution is ~${hrtimer()()} microseconds`);
+// nanosecond resolution timer
 function hrtimer() {
   let start = process.hrtime.bigint();
-  return () => Number((process.hrtime.bigint() - start) / 1000n);
+  return () => Number((process.hrtime.bigint() - start));
 }
 
 function bench(count) {
@@ -18,7 +17,7 @@ function bench(count) {
     calls ++;
   }
   console.log(`${calls} calls, ${bytes} bytes, ` +
-    `${(time() / calls).toString().slice(0, 5)} us`);
+    `${Math.trunc(time() / calls)} ns/call`);
 }
 
 function run(count) {
