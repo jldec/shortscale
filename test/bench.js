@@ -1,4 +1,4 @@
-const shortscale = require('../shortscale.js');
+import { shortscale } from '../shortscale.js';
 
 const RUNS = 15
 const ITERATIONS = 20000;

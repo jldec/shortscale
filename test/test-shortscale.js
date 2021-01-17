@@ -1,6 +1,6 @@
-const test = require('tape');
+import test from 'tape';
 
-const shortscale = require('../shortscale.js');
+import { shortscale } from '../shortscale.js';
 
 const tests = [
   [0, 'zero'],

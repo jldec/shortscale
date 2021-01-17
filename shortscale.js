@@ -51,7 +51,18 @@ const numwords = {
   1000000000000000: 'quadrillion'
 };
 
-module.exports = function shortscale(num) {
+export default shortscale;
+
+/**
+ * Return a string of English words for a number.
+ *
+ * Supports positive integers from 0 to Number.MAX_SAFE_INTEGER
+ * i.e. 0 to 9,007,199,254,740,991
+
+ * @param {number} num
+ * @returns {string}
+ */
+export function shortscale(num) {
   if (num === 0) return 'zero';
   if (num > Number.MAX_SAFE_INTEGER) return '(big number)';
 
