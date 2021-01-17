@@ -1,12 +1,14 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   test:
     strategy:
       matrix:
-        node: [10, 12, 14, 15]
+        node: ['12.20', '14.x', '15.x']
         os:
         - ubuntu-latest
         - macos-latest
