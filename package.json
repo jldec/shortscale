@@ -5,7 +5,7 @@
   "main": "shortscale.js",
   "type": "module",
   "scripts": {
-    "test": "node test/test-*.js",
+    "test": "node test/test-shortscale.js",
     "bench": "node test/bench.js"
   },
   "files": [
