@@ -1,7 +1,6 @@
 {
   "main": "example.js",
-  "type": "module",
   "dependencies": {
-    "shortscale": "2.x"
+    "shortscale": ">=2.x"
   }
 }
