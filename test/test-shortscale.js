@@ -49,13 +49,17 @@ const tests = [
   [Number.MAX_SAFE_INTEGER, 'nine quadrillion seven trillion one hundred and ninety nine billion' +
     ' two hundred and fifty four million seven hundred and fourty thousand nine hundred and ninety one'],
   [Number.MAX_SAFE_INTEGER + 1, '(big number)'],
-  [-1, 'undefined'],
-  [3.14159265, 'undefined']
+  [-1, undefined],
+  [3.14159265, undefined],
+  [true, undefined],
+  [false, undefined],
+  ['', undefined],
+  ['47', undefined],
 ];
 
-tests.forEach(function ([num, str]) {
-  test(str, function (t) {
-    t.equal(shortscale(num), str);
+tests.forEach(function ([num, expected]) {
+  test(num + ' is ' + expected, function (t) {
+    t.equal(shortscale(num), expected);
     t.end();
   });
 });

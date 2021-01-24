@@ -17,8 +17,10 @@ console.log(shortscale(420000999015));
 // four hundred and twenty billion nine hundred and ninety nine thousand and fifteen
 ```
 
-This library is packaged as an ESM module.  
-For CommonJS packaging please point to version `^1.1.0` in your package.json.
+As of v2.0 , this library is packaged as an ESM module.  
+To call from CommonJS use dynamic import(), or require() with version `^1.1.0` in package.json.
+
+See [example-CJS-v1](example-CJS-v1), [example-CJS-v2](example-CJS-v2), [example-ESM](example-ESM).
 
 ### Rust
 For Rust version see [jldec/shortscale-rs](https://github.com/jldec/shortscale-rs).

@@ -63,18 +63,21 @@ export default shortscale;
  * @returns {string}
  */
 export function shortscale(num) {
-  if (num === 0) return 'zero';
-  if (num > Number.MAX_SAFE_INTEGER) return '(big number)';
+  let n = Math.trunc(num);
+  if (n !== num) return undefined; // bad inputs
+  if (n === 0) return 'zero';
+  if (n <= 20) return numwords[n]; // optimization
+  if (n > Number.MAX_SAFE_INTEGER) return '(big number)';
 
   return concat([
     concat([
-      scale(num, 10 ** 15), // quadrillions
-      scale(num, 10 ** 12), // trillions
-      scale(num, 10 ** 9),  // billions
-      scale(num, 10 ** 6),  // millions
-      scale(num, 10 ** 3),  // thousands
-      hundreds(num)], ' '),
-    tensAndUnits(num)], ' and ');
+      scale(n, 10 ** 15), // quadrillions
+      scale(n, 10 ** 12), // trillions
+      scale(n, 10 ** 9),  // billions
+      scale(n, 10 ** 6),  // millions
+      scale(n, 10 ** 3),  // thousands
+      hundreds(n)], ' '),
+    tensAndUnits(n)], ' and ');
 };
 
 // one to nintey nine
