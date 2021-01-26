@@ -1,73 +1,25 @@
 /*
  * shortscale
  * English conversion from number to string
- *
- * E.g. shortscale(420,000,999,015) =
- *   four hundred and twenty billion
- *   nine hundred and ninety nine thousand and fifteen
- *
- * Supports positive integers from 0 to Number.MAX_SAFE_INTEGER
- * i.e. 0 to 9,007,199,254,740,991
- *
- * Larger values return "(big number)".
- *
- * see https://en.wikipedia.org/wiki/Long_and_short_scales
+ * Copyright 2021, Jürgen Leschner - github.com/jldec - MIT license
 */
-
-const numwords = {
-  0: '',
-  1: 'one',
-  2: 'two',
-  3: 'three',
-  4: 'four',
-  5: 'five',
-  6: 'six',
-  7: 'seven',
-  8: 'eight',
-  9: 'nine',
-  10: 'ten',
-  11: 'eleven',
-  12: 'twelve',
-  13: 'thirteen',
-  14: 'fourteen',
-  15: 'fifteen',
-  16: 'sixteen',
-  17: 'seventeen',
-  18: 'eighteen',
-  19: 'nineteen',
-  20: 'twenty',
-  30: 'thirty',
-  40: 'fourty',
-  50: 'fifty',
-  60: 'sixty',
-  70: 'seventy',
-  80: 'eighty',
-  90: 'ninety',
-  100: 'hundred',
-  1000: 'thousand',
-  1000000: 'million',
-  1000000000: 'billion',
-  1000000000000: 'trillion',
-  1000000000000000: 'quadrillion'
-};
 
 export default shortscale;
 
 /**
- * Return a string of English words for a number.
- *
+ * Returns a string of English words for a number.
  * Supports positive integers from 0 to Number.MAX_SAFE_INTEGER
  * i.e. 0 to 9,007,199,254,740,991
-
+ * All other values return undefined.
+ *
  * @param {number} num
  * @returns {string}
  */
 export function shortscale(num) {
   let n = Math.trunc(num);
-  if (n !== num) return undefined; // bad inputs
+  if (n !== num || n > Number.MAX_SAFE_INTEGER) return undefined;
   if (n === 0) return 'zero';
   if (n <= 20) return numwords[n]; // optimization
-  if (n > Number.MAX_SAFE_INTEGER) return '(big number)';
 
   return concat([
     concat([
@@ -116,3 +68,40 @@ function concat(strings, sep) {
 function suffix(str, suffixWord) {
   return str ? str + ' ' + suffixWord : '';
 }
+
+const numwords = {
+  0: '',
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+  9: 'nine',
+  10: 'ten',
+  11: 'eleven',
+  12: 'twelve',
+  13: 'thirteen',
+  14: 'fourteen',
+  15: 'fifteen',
+  16: 'sixteen',
+  17: 'seventeen',
+  18: 'eighteen',
+  19: 'nineteen',
+  20: 'twenty',
+  30: 'thirty',
+  40: 'fourty',
+  50: 'fifty',
+  60: 'sixty',
+  70: 'seventy',
+  80: 'eighty',
+  90: 'ninety',
+  100: 'hundred',
+  1000: 'thousand',
+  1000000: 'million',
+  1000000000: 'billion',
+  1000000000000: 'trillion',
+  1000000000000000: 'quadrillion'
+};
