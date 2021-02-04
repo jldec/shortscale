@@ -3,6 +3,8 @@
 
 Converts numbers into English words.
 
+This module was written as an exploration of JavaScript and Rust [documented here](https://jldec.me/forays-from-node-to-rust).
+
 The [short scale](https://en.wikipedia.org/wiki/Long_and_short_scales#Comparison),
 has different words for each power of 1000.
 
