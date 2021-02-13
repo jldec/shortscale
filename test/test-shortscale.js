@@ -12,6 +12,7 @@ const tests = [
   [22, 'twenty two'],
   [30, 'thirty'],
   [33, 'thirty three'],
+  [40, 'forty'],
   [111, 'one hundred and eleven'],
   [120, 'one hundred and twenty'],
   [121, 'one hundred and twenty one'],
@@ -47,7 +48,7 @@ const tests = [
   [999999120, 'nine hundred and ninety nine million nine hundred and ninety nine thousand one hundred and twenty'],
   [420000999015, 'four hundred and twenty billion nine hundred and ninety nine thousand and fifteen'],
   [Number.MAX_SAFE_INTEGER, 'nine quadrillion seven trillion one hundred and ninety nine billion' +
-    ' two hundred and fifty four million seven hundred and fourty thousand nine hundred and ninety one'],
+    ' two hundred and fifty four million seven hundred and forty thousand nine hundred and ninety one'],
   [Number.MAX_SAFE_INTEGER + 1, undefined],
   [-1, undefined],
   [3.14159265, undefined],
