@@ -1,6 +1,6 @@
 {
   "name": "shortscale",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Convert positive integers to English words (ESM only)",
   "main": "shortscale.js",
   "type": "module",
@@ -19,7 +19,7 @@
   "author": "Jürgen Leschner",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^5.1.1"
+    "tape": "^5.2.2"
   },
   "repository": {
     "type": "git",
