@@ -2,7 +2,7 @@ import { shortscale } from '../shortscale.js';
 
 const RUNS = 15
 const ITERATIONS = 20000;
-const NUM = 740_991;
+const NUM = 740_991_777;
 
 // nanosecond resolution timer
 function hrtimer() {
